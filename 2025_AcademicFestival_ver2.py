@@ -41,7 +41,7 @@ def extract_person_features(img_path):
 
 def preference_highdev(features):
     # 밝기에도 충분히 반응하도록 가중치 부여
-    weights = np.array([1.3, 2.0, 2.0, 2.2])  # [brightness, color_std, saturation, complexity]
+    weights = np.array([2.0, 2.0, 2.0, 2.2])  # [brightness, color_std, saturation, complexity]
     score = np.dot(features, weights) / (np.sum(weights) + 1)
     score = np.clip(score, 0, 1)
     return score * 4 + 1
